@@ -5,8 +5,8 @@ import SwiftData
 struct OpenGemmaApp: App {
     private let container: ModelContainer
     private let engine: any InferenceEngine
-    private let downloadService: ModelDownloadService
-    private let modelManagerViewModel: ModelManagerViewModel
+    @State private var downloadService = ModelDownloadService()
+    @State private var modelManagerViewModel: ModelManagerViewModel
 
     init() {
         let schema = Schema([Conversation.self, Message.self])
@@ -19,8 +19,9 @@ struct OpenGemmaApp: App {
 
         // Use mock engine for now — swap to real runtime later
         engine = MockInferenceEngine()
-        downloadService = ModelDownloadService()
-        modelManagerViewModel = ModelManagerViewModel(downloadService: downloadService)
+        let service = ModelDownloadService()
+        _downloadService = State(initialValue: service)
+        _modelManagerViewModel = State(initialValue: ModelManagerViewModel(downloadService: service))
     }
 
     var body: some Scene {

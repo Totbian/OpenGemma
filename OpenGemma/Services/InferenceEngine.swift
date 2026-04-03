@@ -17,33 +17,28 @@ protocol InferenceEngine: Sendable {
 
 // MARK: - Mock Implementation
 
-actor MockInferenceEngine: InferenceEngine {
+final class MockInferenceEngine: InferenceEngine, @unchecked Sendable {
     private var loaded = false
-    private var cancelled = false
 
-    var isModelLoaded: Bool { loaded }
+    var isModelLoaded: Bool {
+        get async { loaded }
+    }
 
     func loadModel(from path: URL) async throws {
         try await Task.sleep(for: .milliseconds(500))
         loaded = true
     }
 
-    func cancel() {
-        cancelled = true
+    func cancel() async {
+        // Cancellation is handled via Task.isCancelled in the streaming loop
     }
 
     func generate(messages: [(role: String, content: String)], parameters: GenerationParameters) -> AsyncThrowingStream<String, Error> {
-        cancelled = false
         let responses = Self.sampleResponses
         let maxTokens = parameters.maxTokens
 
-        return AsyncThrowingStream { [weak self] continuation in
-            let task = Task { [weak self] in
-                guard let self else {
-                    continuation.finish()
-                    return
-                }
-
+        return AsyncThrowingStream { continuation in
+            let task = Task {
                 let lastMessage = messages.last?.content ?? ""
                 let response = Self.pickResponse(for: lastMessage, from: responses)
                 let words = response.split(separator: " ", omittingEmptySubsequences: false)
@@ -53,7 +48,7 @@ actor MockInferenceEngine: InferenceEngine {
 
                 var tokenCount = 0
                 for (index, word) in words.enumerated() {
-                    if await self.cancelled { break }
+                    if Task.isCancelled { break }
                     if tokenCount >= maxTokens { break }
 
                     let token = (index == 0 ? "" : " ") + word

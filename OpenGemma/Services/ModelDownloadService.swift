@@ -1,6 +1,7 @@
 import Foundation
 
 @Observable
+@MainActor
 final class ModelDownloadService: NSObject {
     var downloadProgress: [String: Double] = [:]
     var downloadedModelPaths: [String: URL] = [:]
@@ -112,7 +113,7 @@ final class ModelDownloadService: NSObject {
         persistPaths()
     }
 
-    private func modelsDirectory() -> URL {
+    nonisolated private func modelsDirectory() -> URL {
         let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let dir = docs.appendingPathComponent("Models", isDirectory: true)
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
@@ -123,7 +124,7 @@ final class ModelDownloadService: NSObject {
 // MARK: - URLSessionDownloadDelegate
 
 extension ModelDownloadService: URLSessionDownloadDelegate {
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+    nonisolated func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         guard let modelID = downloadTask.taskDescription else { return }
 
         let destination = modelsDirectory().appendingPathComponent("\(modelID).bin")
@@ -152,7 +153,7 @@ extension ModelDownloadService: URLSessionDownloadDelegate {
         }
     }
 
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    nonisolated func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         guard let modelID = downloadTask.taskDescription else { return }
         let progress = totalBytesExpectedToWrite > 0
             ? Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
@@ -162,7 +163,7 @@ extension ModelDownloadService: URLSessionDownloadDelegate {
         }
     }
 
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+    nonisolated func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         guard let modelID = task.taskDescription, let error = error else { return }
         let nsError = error as NSError
         if nsError.code == NSURLErrorCancelled { return }
