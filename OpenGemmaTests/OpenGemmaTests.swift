@@ -46,7 +46,7 @@ final class OpenGemmaTests: XCTestCase {
         XCTAssertEqual(models.count, 3)
         XCTAssertEqual(models[0].id, "gemma-3-1b-it-4bit")
         XCTAssertEqual(models[1].id, "gemma-3-4b-it-4bit")
-        XCTAssertEqual(models[2].id, "gemma-3n-e4b-it-4bit")
+        XCTAssertEqual(models[2].id, "gemma-4-e4b-it-4bit")
     }
 
     func testModelFormattedSize() {
