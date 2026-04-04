@@ -13,6 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ml-explore/mlx-swift-lm", from: "2.0.0"),
+        .package(url: "https://github.com/huggingface/swift-transformers", branch: "main"),
     ],
     targets: [
         .target(
