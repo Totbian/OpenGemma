@@ -4,15 +4,17 @@ import SwiftUI
 @Observable
 @MainActor
 final class ModelManagerViewModel {
-    let downloadService: ModelDownloadService
+    let engine: MLXInferenceEngine
     var selectedModelID: String {
         didSet { UserDefaults.standard.set(selectedModelID, forKey: "selectedModelID") }
     }
+    var isLoadingModel = false
+    var loadError: String?
 
     var availableModels: [ModelInfo] { ModelInfo.availableModels }
 
-    init(downloadService: ModelDownloadService) {
-        self.downloadService = downloadService
+    init(engine: MLXInferenceEngine) {
+        self.engine = engine
         self.selectedModelID = UserDefaults.standard.string(forKey: "selectedModelID") ?? ""
     }
 
@@ -20,47 +22,29 @@ final class ModelManagerViewModel {
         availableModels.first { $0.id == selectedModelID }
     }
 
-    var downloadedModels: [ModelInfo] {
-        availableModels.filter { downloadService.isDownloaded($0) }
+    var loadingProgress: Double {
+        engine.loadingProgress
     }
 
-    func isDownloaded(_ model: ModelInfo) -> Bool {
-        downloadService.isDownloaded(model)
-    }
+    func selectAndLoadModel(_ model: ModelInfo) {
+        guard !isLoadingModel else { return }
 
-    func isDownloading(_ model: ModelInfo) -> Bool {
-        downloadService.isDownloading(model)
-    }
+        selectedModelID = model.id
+        isLoadingModel = true
+        loadError = nil
 
-    func progress(for model: ModelInfo) -> Double {
-        downloadService.progress(for: model)
-    }
-
-    func errorMessage(for model: ModelInfo) -> String? {
-        downloadService.errorMessages[model.id]
-    }
-
-    func download(_ model: ModelInfo) {
-        downloadService.download(model)
-    }
-
-    func pause(_ model: ModelInfo) {
-        downloadService.pause(model)
-    }
-
-    func cancelDownload(_ model: ModelInfo) {
-        downloadService.cancelDownload(model)
-    }
-
-    func deleteModel(_ model: ModelInfo) {
-        downloadService.deleteModel(model)
-        if selectedModelID == model.id {
-            selectedModelID = downloadedModels.first?.id ?? ""
+        Task {
+            do {
+                try await engine.loadModel(id: model.huggingFaceID)
+            } catch {
+                loadError = error.localizedDescription
+            }
+            isLoadingModel = false
         }
     }
 
-    func selectModel(_ model: ModelInfo) {
-        guard isDownloaded(model) else { return }
-        selectedModelID = model.id
+    func unloadModel() {
+        engine.unloadModel()
+        selectedModelID = ""
     }
 }

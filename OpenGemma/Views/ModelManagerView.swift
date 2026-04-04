@@ -14,16 +14,7 @@ struct ModelManagerView: View {
                 } header: {
                     Text("Available Models")
                 } footer: {
-                    Text("Models are downloaded from Hugging Face and stored on-device. All inference runs locally — no data leaves your device.")
-                }
-
-                if !viewModel.downloadedModels.isEmpty {
-                    Section("Storage") {
-                        let totalBytes = viewModel.downloadedModels.reduce(0) { $0 + $1.sizeInBytes }
-                        let totalGB = Double(totalBytes) / 1_073_741_824
-                        LabeledContent("Downloaded Models", value: "\(viewModel.downloadedModels.count)")
-                        LabeledContent("Total Size", value: String(format: "%.1f GB", totalGB))
-                    }
+                    Text("Models are downloaded from Hugging Face and run on-device via MLX. All inference is local — no data leaves your device.")
                 }
             }
             .navigationTitle("Models")
@@ -42,6 +33,14 @@ struct ModelManagerView: View {
 private struct ModelRow: View {
     let model: ModelInfo
     @Bindable var viewModel: ModelManagerViewModel
+
+    private var isSelected: Bool {
+        viewModel.selectedModelID == model.id
+    }
+
+    private var isLoading: Bool {
+        isSelected && viewModel.isLoadingModel
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -64,7 +63,7 @@ private struct ModelRow: View {
 
                 Spacer()
 
-                if viewModel.selectedModelID == model.id {
+                if isSelected && !isLoading {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(.green)
                 }
@@ -81,16 +80,30 @@ private struct ModelRow: View {
                     .foregroundStyle(.secondary)
             }
 
-            // Download / Status controls
-            if viewModel.isDownloading(model) {
-                downloadingView
-            } else if viewModel.isDownloaded(model) {
-                downloadedView
+            if isLoading {
+                VStack(spacing: 4) {
+                    ProgressView(value: viewModel.loadingProgress)
+                    Text("Downloading & loading model…")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            } else if isSelected {
+                Label("Active", systemImage: "checkmark")
+                    .font(.caption)
+                    .foregroundStyle(.green)
             } else {
-                downloadButton
+                Button {
+                    viewModel.selectAndLoadModel(model)
+                } label: {
+                    Label("Download & Load", systemImage: "arrow.down.circle")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.small)
             }
 
-            if let error = viewModel.errorMessage(for: model) {
+            if let error = viewModel.loadError, isSelected {
                 Text(error)
                     .font(.caption)
                     .foregroundStyle(.red)
@@ -98,68 +111,4 @@ private struct ModelRow: View {
         }
         .padding(.vertical, 4)
     }
-
-    private var downloadingView: some View {
-        VStack(spacing: 6) {
-            ProgressView(value: viewModel.progress(for: model))
-            HStack {
-                Text("\(Int(viewModel.progress(for: model) * 100))%")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                Spacer()
-                Button("Pause") { viewModel.pause(model) }
-                    .font(.caption)
-                Button("Cancel") { viewModel.cancelDownload(model) }
-                    .font(.caption)
-                    .foregroundStyle(.red)
-            }
-        }
-    }
-
-    private var downloadedView: some View {
-        HStack {
-            if viewModel.selectedModelID == model.id {
-                Label("Active", systemImage: "checkmark")
-                    .font(.caption)
-                    .foregroundStyle(.green)
-            } else {
-                Button {
-                    viewModel.selectModel(model)
-                } label: {
-                    Text("Select")
-                        .font(.caption)
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.small)
-            }
-
-            Spacer()
-
-            Button(role: .destructive) {
-                viewModel.deleteModel(model)
-            } label: {
-                Label("Delete", systemImage: "trash")
-                    .font(.caption)
-            }
-            .controlSize(.small)
-        }
-    }
-
-    private var downloadButton: some View {
-        Button {
-            viewModel.download(model)
-        } label: {
-            Label("Download", systemImage: "arrow.down.circle")
-                .font(.subheadline)
-                .frame(maxWidth: .infinity)
-        }
-        .buttonStyle(.borderedProminent)
-        .controlSize(.small)
-    }
-}
-
-#Preview {
-    ModelManagerView(
-        viewModel: ModelManagerViewModel(downloadService: ModelDownloadService())
-    )
 }
