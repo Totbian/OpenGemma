@@ -4,8 +4,7 @@ import SwiftData
 @main
 struct OpenGemmaApp: App {
     private let container: ModelContainer
-    private let engine: any InferenceEngine
-    @State private var downloadService = ModelDownloadService()
+    @State private var engine = MLXInferenceEngine()
     @State private var modelManagerViewModel: ModelManagerViewModel
 
     init() {
@@ -17,11 +16,9 @@ struct OpenGemmaApp: App {
             fatalError("Failed to create ModelContainer: \(error)")
         }
 
-        // Use mock engine for now — swap to real runtime later
-        engine = MockInferenceEngine()
-        let service = ModelDownloadService()
-        _downloadService = State(initialValue: service)
-        _modelManagerViewModel = State(initialValue: ModelManagerViewModel(downloadService: service))
+        let mlxEngine = MLXInferenceEngine()
+        _engine = State(initialValue: mlxEngine)
+        _modelManagerViewModel = State(initialValue: ModelManagerViewModel(engine: mlxEngine))
     }
 
     var body: some Scene {
