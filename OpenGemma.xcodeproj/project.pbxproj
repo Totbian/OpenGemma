@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0FF9E1259AB10A744B15DF80 /* MLXInferenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91608F070D13112EED59E7 /* MLXInferenceEngine.swift */; };
+		4159CAE54A9D01A145E55C55 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C3ECBFE4D0B1BCBD2AF61 /* ConversationListView.swift */; };
+		48200B1BFFF978EEA1119E4D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F44F501973696E7D01A6B4E /* ChatViewModel.swift */; };
+		57F8608E106BF9275DE4D9F2 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = C8C38922530FADE3E53FB62E /* MLXLMCommon */; };
+		63CC9592281F725FBA406F06 /* ModelManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9042BE4B9B5D6D7C3D1E53EF /* ModelManagerView.swift */; };
+		7E49D4A4B04A544CF0C710BF /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 00542473F7C637CB0EFE3AA7 /* MLXLLM */; };
+		853E7C7A0F3D3C58F69D5EDA /* OpenGemmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12C11AEFD114E05B181025 /* OpenGemmaTests.swift */; };
+		AE66B006BD18B3A56DBCEE8F /* InferenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255FCAC0D781B954A1058BDB /* InferenceEngine.swift */; };
+		AE8CDFC5B45CA771A1C8DAE8 /* OpenGemmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC0177954125C7465D8504 /* OpenGemmaApp.swift */; };
+		B12156DF485E037D4B228B30 /* ModelManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDD03B5DE9818507C63043 /* ModelManagerViewModel.swift */; };
+		B33B9138923417BC1061C87E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3BF5AFA7FFC1D61BF2A80 /* Message.swift */; };
+		C20639C6E8D4A6C24A8D6BDC /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF70A9F92FD1712C24D9EADA /* MessageBubbleView.swift */; };
+		CF28B2ECC95CABF1A8D24BE5 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2284BA03BB14DDBD17719 /* Conversation.swift */; };
+		D5096DB4618FA6550827FBD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B0753C5C37B7C5F2D29CF1 /* ContentView.swift */; };
+		E2A03C22D4AEF0AACA274BDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CAAC5D3691A946B568D630 /* Assets.xcassets */; };
+		EB92AE52D8992EB03580651B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6316650992B8DD344465B52 /* ChatView.swift */; };
+		F9B6FD236FFA55670765713B /* ModelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FF02077E0D2DCC11085E7 /* ModelInfo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E36B71F3C1C8EE4877A9F8EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B2278F35C7D00CB9665C3B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 028720566623A3259271738C;
+			remoteInfo = OpenGemma;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08B3BF5AFA7FFC1D61BF2A80 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		14EDD03B5DE9818507C63043 /* ModelManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManagerViewModel.swift; sourceTree = "<group>"; };
+		1D4FF02077E0D2DCC11085E7 /* ModelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfo.swift; sourceTree = "<group>"; };
+		1F44F501973696E7D01A6B4E /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		25268B8DB6E588307649437E /* OpenGemmaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenGemmaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		255FCAC0D781B954A1058BDB /* InferenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceEngine.swift; sourceTree = "<group>"; };
+		3D6C3ECBFE4D0B1BCBD2AF61 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
+		4B91608F070D13112EED59E7 /* MLXInferenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLXInferenceEngine.swift; sourceTree = "<group>"; };
+		68B0753C5C37B7C5F2D29CF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7CD2284BA03BB14DDBD17719 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		9042BE4B9B5D6D7C3D1E53EF /* ModelManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManagerView.swift; sourceTree = "<group>"; };
+		9ECC0177954125C7465D8504 /* OpenGemmaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGemmaApp.swift; sourceTree = "<group>"; };
+		CF70A9F92FD1712C24D9EADA /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
+		D6316650992B8DD344465B52 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		E1CAAC5D3691A946B568D630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E20C7699271405FA0396BD1C /* OpenGemma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGemma.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC12C11AEFD114E05B181025 /* OpenGemmaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGemmaTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		97A9DDFEBF0DFB7AB034CB6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E49D4A4B04A544CF0C710BF /* MLXLLM in Frameworks */,
+				57F8608E106BF9275DE4D9F2 /* MLXLMCommon in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		042031AD7BB2EFF67CBA9F6A = {
+			isa = PBXGroup;
+			children = (
+				3EBA754D1BD4D9423513362F /* OpenGemma */,
+				CC029B1A71B19A91C58C389A /* OpenGemmaTests */,
+				9B0F4249C2B34C4D958F5D29 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3EBA754D1BD4D9423513362F /* OpenGemma */ = {
+			isa = PBXGroup;
+			children = (
+				E1CAAC5D3691A946B568D630 /* Assets.xcassets */,
+				A5E45D97818657D3242E67EB /* App */,
+				410907008F626D97A84B224F /* Models */,
+				CDA9393B8A6010A3A5E63D24 /* Services */,
+				B7D8ADECCF5E8C2E339D947A /* ViewModels */,
+				9BC7D859849F9D4F24F390C1 /* Views */,
+			);
+			path = OpenGemma;
+			sourceTree = "<group>";
+		};
+		410907008F626D97A84B224F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7CD2284BA03BB14DDBD17719 /* Conversation.swift */,
+				08B3BF5AFA7FFC1D61BF2A80 /* Message.swift */,
+				1D4FF02077E0D2DCC11085E7 /* ModelInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9B0F4249C2B34C4D958F5D29 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E20C7699271405FA0396BD1C /* OpenGemma.app */,
+				25268B8DB6E588307649437E /* OpenGemmaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BC7D859849F9D4F24F390C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D6316650992B8DD344465B52 /* ChatView.swift */,
+				3D6C3ECBFE4D0B1BCBD2AF61 /* ConversationListView.swift */,
+				CF70A9F92FD1712C24D9EADA /* MessageBubbleView.swift */,
+				9042BE4B9B5D6D7C3D1E53EF /* ModelManagerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A5E45D97818657D3242E67EB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				68B0753C5C37B7C5F2D29CF1 /* ContentView.swift */,
+				9ECC0177954125C7465D8504 /* OpenGemmaApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B7D8ADECCF5E8C2E339D947A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1F44F501973696E7D01A6B4E /* ChatViewModel.swift */,
+				14EDD03B5DE9818507C63043 /* ModelManagerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CC029B1A71B19A91C58C389A /* OpenGemmaTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC12C11AEFD114E05B181025 /* OpenGemmaTests.swift */,
+			);
+			path = OpenGemmaTests;
+			sourceTree = "<group>";
+		};
+		CDA9393B8A6010A3A5E63D24 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				255FCAC0D781B954A1058BDB /* InferenceEngine.swift */,
+				4B91608F070D13112EED59E7 /* MLXInferenceEngine.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		028720566623A3259271738C /* OpenGemma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8EB4DF4004DE19A8D2D18B84 /* Build configuration list for PBXNativeTarget "OpenGemma" */;
+			buildPhases = (
+				1ECD1F0535D6F6B68CE61A6A /* Sources */,
+				5A135DF9C9C3435D6EED26D8 /* Resources */,
+				97A9DDFEBF0DFB7AB034CB6F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenGemma;
+			packageProductDependencies = (
+				00542473F7C637CB0EFE3AA7 /* MLXLLM */,
+				C8C38922530FADE3E53FB62E /* MLXLMCommon */,
+			);
+			productName = OpenGemma;
+			productReference = E20C7699271405FA0396BD1C /* OpenGemma.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0C1E6E94B60B17AC998CCCA6 /* OpenGemmaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C33A6E067D352E2C1C4E294 /* Build configuration list for PBXNativeTarget "OpenGemmaTests" */;
+			buildPhases = (
+				5BA20F40B249B92A4BD66F5C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BCAB68C1AA0735A14025D04 /* PBXTargetDependency */,
+			);
+			name = OpenGemmaTests;
+			packageProductDependencies = (
+			);
+			productName = OpenGemmaTests;
+			productReference = 25268B8DB6E588307649437E /* OpenGemmaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B2278F35C7D00CB9665C3B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2620;
+			};
+			buildConfigurationList = 9EBAFF971E05E52296F7F50C /* Build configuration list for PBXProject "OpenGemma" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 042031AD7BB2EFF67CBA9F6A;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				077DAAFB6BADA6677C1CC3F7 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9B0F4249C2B34C4D958F5D29 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				028720566623A3259271738C /* OpenGemma */,
+				0C1E6E94B60B17AC998CCCA6 /* OpenGemmaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A135DF9C9C3435D6EED26D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2A03C22D4AEF0AACA274BDB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1ECD1F0535D6F6B68CE61A6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB92AE52D8992EB03580651B /* ChatView.swift in Sources */,
+				48200B1BFFF978EEA1119E4D /* ChatViewModel.swift in Sources */,
+				D5096DB4618FA6550827FBD0 /* ContentView.swift in Sources */,
+				CF28B2ECC95CABF1A8D24BE5 /* Conversation.swift in Sources */,
+				4159CAE54A9D01A145E55C55 /* ConversationListView.swift in Sources */,
+				AE66B006BD18B3A56DBCEE8F /* InferenceEngine.swift in Sources */,
+				0FF9E1259AB10A744B15DF80 /* MLXInferenceEngine.swift in Sources */,
+				B33B9138923417BC1061C87E /* Message.swift in Sources */,
+				C20639C6E8D4A6C24A8D6BDC /* MessageBubbleView.swift in Sources */,
+				F9B6FD236FFA55670765713B /* ModelInfo.swift in Sources */,
+				63CC9592281F725FBA406F06 /* ModelManagerView.swift in Sources */,
+				B12156DF485E037D4B228B30 /* ModelManagerViewModel.swift in Sources */,
+				AE8CDFC5B45CA771A1C8DAE8 /* OpenGemmaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA20F40B249B92A4BD66F5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				853E7C7A0F3D3C58F69D5EDA /* OpenGemmaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BCAB68C1AA0735A14025D04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 028720566623A3259271738C /* OpenGemma */;
+			targetProxy = E36B71F3C1C8EE4877A9F8EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0755771FEABC9DC490F4C912 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3C2AD4D9A3C22DD774025229 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.opengemma.OpenGemmaTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenGemma.app/OpenGemma";
+			};
+			name = Release;
+		};
+		516AABC7240C7DA168C4C357 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NVDVX5N8QH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.opengemma.OpenGemma;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88D8BD09A2A43DE740014141 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.opengemma.OpenGemmaTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenGemma.app/OpenGemma";
+			};
+			name = Debug;
+		};
+		B384FEC05F23507E08A87A56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C9548A7407046461C0F0471C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NVDVX5N8QH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.opengemma.OpenGemma;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C33A6E067D352E2C1C4E294 /* Build configuration list for PBXNativeTarget "OpenGemmaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88D8BD09A2A43DE740014141 /* Debug */,
+				3C2AD4D9A3C22DD774025229 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8EB4DF4004DE19A8D2D18B84 /* Build configuration list for PBXNativeTarget "OpenGemma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				516AABC7240C7DA168C4C357 /* Debug */,
+				C9548A7407046461C0F0471C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9EBAFF971E05E52296F7F50C /* Build configuration list for PBXProject "OpenGemma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B384FEC05F23507E08A87A56 /* Debug */,
+				0755771FEABC9DC490F4C912 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		077DAAFB6BADA6677C1CC3F7 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift-lm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00542473F7C637CB0EFE3AA7 /* MLXLLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 077DAAFB6BADA6677C1CC3F7 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLLM;
+		};
+		C8C38922530FADE3E53FB62E /* MLXLMCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 077DAAFB6BADA6677C1CC3F7 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLMCommon;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3B2278F35C7D00CB9665C3B7 /* Project object */;
+}

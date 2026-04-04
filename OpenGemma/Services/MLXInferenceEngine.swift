@@ -32,7 +32,10 @@ final class MLXInferenceEngine: InferenceEngine, @unchecked Sendable {
         container = nil
         loadingProgress = 0
 
-        let config = ModelConfiguration(id: id)
+        let config = ModelConfiguration(
+            id: id,
+            extraEOSTokens: ["<end_of_turn>"]
+        )
         container = try await LLMModelFactory.shared.loadContainer(
             configuration: config
         ) { progress in

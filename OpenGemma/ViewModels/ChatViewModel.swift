@@ -49,7 +49,7 @@ final class ChatViewModel {
         generateTask = Task {
             do {
                 let chatMessages = conversation.sortedMessages
-                    .filter { $0.role != .system }
+                    .filter { $0.role != .system && $0.isComplete }
                     .map { (role: $0.role.rawValue, content: $0.content) }
 
                 let stream = engine.generate(
