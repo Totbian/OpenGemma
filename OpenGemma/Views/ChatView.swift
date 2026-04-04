@@ -12,7 +12,9 @@ struct ChatView: View {
             inputBar
         }
         .navigationTitle(viewModel.conversation.title)
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 
     // MARK: - Message List
@@ -29,7 +31,12 @@ struct ChatView: View {
                         .id(message.id)
                         .contextMenu {
                             Button {
+                                #if os(iOS)
                                 UIPasteboard.general.string = message.content
+                                #elseif os(macOS)
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(message.content, forType: .string)
+                                #endif
                             } label: {
                                 Label("Copy", systemImage: "doc.on.doc")
                             }
@@ -82,7 +89,11 @@ struct ChatView: View {
                 .textFieldStyle(.plain)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
+                #if os(iOS)
                 .background(Color(.systemGray6))
+                #else
+                .background(Color.gray.opacity(0.15))
+                #endif
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .focused($isInputFocused)
 

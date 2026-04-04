@@ -18,7 +18,9 @@ struct ModelManagerView: View {
                 }
             }
             .navigationTitle("Models")
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
@@ -53,7 +55,11 @@ private struct ModelRow: View {
                             .font(.caption)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
+                            #if os(iOS)
                             .background(Color(.systemGray5))
+                            #else
+                            .background(Color.gray.opacity(0.2))
+                            #endif
                             .clipShape(Capsule())
                     }
                     Text(model.description)

@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "OpenGemma", targets: ["OpenGemma"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ml-explore/mlx-swift-lm", from: "1.0.0"),
+        .package(url: "https://github.com/ml-explore/mlx-swift-lm", from: "2.0.0"),
     ],
     targets: [
         .target(

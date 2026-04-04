@@ -74,8 +74,8 @@ final class MLXInferenceEngine: InferenceEngine, @unchecked Sendable {
                     }
 
                     try await container.perform { context in
-                        let chatMessages: [[String: String]] = messages.map {
-                            ["role": $0.role, "content": $0.content]
+                        let chatMessages: [Chat.Message] = messages.map {
+                            Chat.Message(role: Chat.Message.Role(rawValue: $0.role) ?? .user, content: $0.content)
                         }
 
                         let input = try await context.processor.prepare(

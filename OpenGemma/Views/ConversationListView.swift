@@ -36,6 +36,7 @@ struct ConversationListView: View {
         }
         .navigationTitle("OpenGemma")
         .toolbar {
+            #if os(iOS)
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     showingModelManager = true
@@ -43,7 +44,6 @@ struct ConversationListView: View {
                     Label("Models", systemImage: "cpu")
                 }
             }
-
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     createConversation()
@@ -51,6 +51,22 @@ struct ConversationListView: View {
                     Label("New Chat", systemImage: "plus")
                 }
             }
+            #else
+            ToolbarItem {
+                Button {
+                    showingModelManager = true
+                } label: {
+                    Label("Models", systemImage: "cpu")
+                }
+            }
+            ToolbarItem {
+                Button {
+                    createConversation()
+                } label: {
+                    Label("New Chat", systemImage: "plus")
+                }
+            }
+            #endif
         }
         .sheet(isPresented: $showingModelManager) {
             ModelManagerView(viewModel: modelManagerViewModel)
@@ -100,7 +116,11 @@ private struct ConversationRow: View {
                     .font(.caption2)
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
+                    #if os(iOS)
                     .background(Color(.systemGray5))
+                    #else
+                    .background(Color.gray.opacity(0.2))
+                    #endif
                     .clipShape(Capsule())
             }
         }

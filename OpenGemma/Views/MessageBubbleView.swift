@@ -43,9 +43,17 @@ struct MessageBubbleView: View {
         case .user:
             return .blue
         case .assistant:
+            #if os(iOS)
             return Color(.systemGray5)
+            #else
+            return Color.gray.opacity(0.2)
+            #endif
         case .system:
+            #if os(iOS)
             return Color(.systemGray6)
+            #else
+            return Color.gray.opacity(0.15)
+            #endif
         }
     }
 }
