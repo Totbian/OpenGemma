@@ -52,7 +52,7 @@
 		CF70A9F92FD1712C24D9EADA /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
 		D6316650992B8DD344465B52 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		E1CAAC5D3691A946B568D630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E20C7699271405FA0396BD1C /* OpenGemma.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OpenGemma.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E20C7699271405FA0396BD1C /* OpenGemma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGemma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC12C11AEFD114E05B181025 /* OpenGemmaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGemmaTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,8 +206,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 9EBAFF971E05E52296F7F50C /* Build configuration list for PBXProject "OpenGemma" */;
 			developmentRegion = en;
@@ -364,6 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NVDVX5N8QH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -468,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NVDVX5N8QH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
